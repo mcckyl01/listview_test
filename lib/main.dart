@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
-import './products.dart';
-
 import './content.dart';
+import './products.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,6 +13,20 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   List<String> _products = [];
+   int _currentIndex = 0;
+   String _title;
+
+  final List<Widget> _children = [
+    ContentPage(title: "Dashboard"),
+    ContentPage(title: "Add Tokens"),
+    ContentPage(title: "Menu"),
+    ContentPage(title: "Settings")
+  ];
+  void _onBottomNavBarTab(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   void initState() {
@@ -36,12 +48,49 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
             ),
+             bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: _onBottomNavBarTab,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard,
+            color: Colors.black,
+            ),
+            title: Text('Dashboard',
+            style: TextStyle(color: Colors.black),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add,
+            color: Colors.black,
+            ),
+            title: Text('Add Tokens',
+            style: TextStyle(color: Colors.black),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.menu,
+            color: Colors.black,
+            ),
+            title: Text('Menu',
+            style: TextStyle(color: Colors.black),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings,
+            color: Colors.black,
+            ),
+            title: Text('Settings',
+            style: TextStyle(color: Colors.black),),
+          )
+        ],
+      ),
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
               Container(
                 color: Colors.blueGrey,
-              child: RaisedButton(
+          child: RaisedButton(
                       color: Theme.of(context).primaryColor,
                       splashColor: Colors.blueGrey,
                       textColor: Colors.white,
@@ -60,6 +109,7 @@ class _MyAppState extends State<MyApp> {
               Expanded(child: Products(_products))
             ]),
             ),
+           
             );
   }
 }
