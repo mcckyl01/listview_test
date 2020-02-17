@@ -6,11 +6,10 @@ class Products extends StatelessWidget {
 
   Widget _buildProductItem(BuildContext context, int index) {
     return Card(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
-        
-        child: FlatButton(
+      child: FlatButton(
           onPressed: () {},
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 20, 40, 20),
                   child: Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -35,7 +34,7 @@ class Products extends StatelessWidget {
           ),
         ),
       ),
-    );
+      );
   }
 
   @override
