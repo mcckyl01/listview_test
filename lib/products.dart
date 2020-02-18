@@ -9,7 +9,7 @@ class Products extends StatelessWidget {
       child: FlatButton(
           onPressed: () {},
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 20, 40, 20),
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
                   child: Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[

@@ -41,20 +41,22 @@ class _MyAppState extends State<MyApp> {
           appBar: PreferredSize(
           preferredSize: Size.fromHeight(70.0), // here the desired height
           child: AppBar(
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.grey[200],
             centerTitle: true,
             title: Image.asset('assets/blue-logo.png',
             height: 50,
             ),
           ),
             ),
-             bottomNavigationBar: BottomNavigationBar(
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.grey[200],
+          type: BottomNavigationBarType.fixed,
+          fixedColor: Colors.blue,
         currentIndex: _currentIndex,
         onTap: _onBottomNavBarTab,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.dashboard,
-            color: Colors.black,
             ),
             title: Text('Dashboard',
             style: TextStyle(color: Colors.black),
@@ -62,7 +64,6 @@ class _MyAppState extends State<MyApp> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.add,
-            color: Colors.black,
             ),
             title: Text('Add Tokens',
             style: TextStyle(color: Colors.black),
@@ -70,7 +71,6 @@ class _MyAppState extends State<MyApp> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.menu,
-            color: Colors.black,
             ),
             title: Text('Menu',
             style: TextStyle(color: Colors.black),
@@ -78,21 +78,21 @@ class _MyAppState extends State<MyApp> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings,
-            color: Colors.black,
             ),
             title: Text('Settings',
-            style: TextStyle(color: Colors.black),),
-          )
+            style: TextStyle(color: Colors.black),
+            ),
+          ),
         ],
       ),
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
               Container(
-                color: Colors.blueGrey,
-          child: RaisedButton(
-                      color: Theme.of(context).primaryColor,
-                      splashColor: Colors.blueGrey,
+                color: Colors.grey,
+          child: FlatButton(
+                      color: Colors.grey,
+                      splashColor: Colors.grey,
                       textColor: Colors.white,
                       onPressed: () {
                         setState(() {
